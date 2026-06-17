@@ -27,6 +27,26 @@ const cursos = [
   },
 ];
 
+/*
+//Reglas
+
+const cursosDesarrollo=curso=>curso.
+categoria==="Desarrollo";
+const certificadoTrue=curso=>curso.
+tieneCertificado===true;
+
+
+//Combinaciones de Hechos
+
+const desarrolloAndCertificado=curso=>
+cursoDesarrollo(curso) && certificadoTrue(curso);
+
+//Consultas
+const resultado=cursos.filter(desarrolloAndCertificado)
+
+console.log("Los cursos de desarrollo con certificado son:", resultado.map(curso=>curso.titulo))
+ */
+
 const devConCert = cursos.filter(
   (cur) => cur.categoria === "Desarrollo" && cur.tieneCertificado === true,
 );
@@ -57,6 +77,37 @@ const familia = [
   { padre: "Juan", hijo: "Pedro" },
   { padre: "Abraham", hijo: "Juan" },
 ];
+
+/*
+//Reglas
+const esHijo = (dato, per) => dato.hijo === per;
+const esPadre = (dato, per) => dato.padre === per;
+
+//Combinaciones de Hechos
+const reglaHermanos = (p1, p2) => d1 => 
+  p1 !== p2 && 
+  esHijo(d1, p1) && 
+
+const reglaAbuelo = (abu, nie) => dNie => 
+  esHijo(dNie, nie) && 
+  familia.some(dPad => esHijo(dPad, dNie.padre) && esPadre(dPad, abu));
+
+
+//Consultas
+const hnosLuisPedro = familia.some(reglaHermanos("Luis", "Pedro"));
+const hnosLuisJuan = familia.some(reglaHermanos("Luis", "Juan"));
+const hnosJuanPedro = familia.some(reglaHermanos("Juan", "Pedro"));
+
+const abuAbrahamLuis = familia.some(reglaAbuelo("Abraham", "Luis"));
+const abuJuanPedro = familia.some(reglaAbuelo("Juan", "Pedro"));
+
+console.log("¿Luis y Pedro son hermanos?", hnosLuisPedro);
+console.log("¿Luis y Juan son hermanos?", hnosLuisJuan);
+console.log("¿Juan y Pedro son hermanos?", hnosJuanPedro);
+
+console.log("¿Abraham es abuelo de Luis?", abuAbrahamLuis);
+console.log("¿Juan es abuelo de Pedro?", abuJuanPedro);
+*/
 
 function SonHermanos(persona1, persona2) {
   if (persona1 === persona2) return false;
@@ -90,6 +141,33 @@ console.log("Juan es abuelo de Pedro?", EsAbuelo("Juan", "Pedro"));
 console.log("-------------------------------");
 
 //Ejercicio 3
+
+/*
+//Reglas
+const verificarPadre = (dato, per) => dato.padre === per;
+const verificarHijo = (dato, per) => dato.hijo === per;
+
+//Combinaciones de Hechos
+const relacionPadreHijo = (padre, hijo) => dato => 
+  verificarPadre(dato, padre) && verificarHijo(dato, hijo);
+
+const filtroHijo = (hijo) => dato => verificarHijo(dato, hijo);
+const filtroPadre = (padre) => dato => verificarPadre(dato, padre);
+
+
+//Consultas
+const ansAbrahamJuan = familia.some(relacionPadreHijo("Abraham", "Juan"));
+
+const regLuis = familia.find(filtroHijo("Luis"));
+const padreDeLuis = regLuis ? regLuis.padre : "No encontrado";
+
+const regHijosJuan = familia.filter(filtroPadre("Juan"));
+const listaHijosJuan = regHijosJuan.map(dato => dato.hijo);
+
+console.log("¿Abraham es padre de Juan?", ansAbrahamJuan);
+console.log("El padre de Luis es:", padreDeLuis);
+console.log("Los hijos de Juan son:", listaHijosJuan);
+*/
 
 const esPadreJuan = familia.some(
   (dato) => dato.padre === "Abraham" && dato.hijo === "Juan",
