@@ -49,7 +49,7 @@ const clientes = [
   { nombre: "Jorge", historialLimpio: false, ingresosEstables: true },
 ];
 
-// #Reglas
+// Reglas
 const histoBien = cliente => cliente.historialLimpio === true;
 const ingreBien = cliente => cliente.ingresosEstables === true;
 

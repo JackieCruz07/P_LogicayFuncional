@@ -19,6 +19,8 @@ const generarMulta = transaccion => ({
   multa: transaccion.monto * 0.05
 });
 
+//const generarMulta = transaccion => ({...transaccion, 
+// multa: transaccion.monto * 0.05});
 
 // Consultas
 const retirosAltos = transacciones.filter(transaccionRiesgosa);
