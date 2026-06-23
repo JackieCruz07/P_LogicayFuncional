@@ -65,6 +65,9 @@ const listBlack = clientes
   .filter(tarjetaBlack)
   .map((cliente) => cliente.nombre);
 
+  //const listBlack = clientes.filter(tarjetaBlack)
+  // .map((cliente) => cliente.nombre);
+
 const listReact = clientes
   .filter(reactivacion)
   .map((cliente) => cliente.nombre);
