@@ -18,7 +18,7 @@ console.log("---------------------------")
 
 const dbPosts = ["Post 1", "Post 2", "Post 3", "Post 4", "Post 5", "Post 6"];
 
-function* obtenerFeed(posts) {
+function* obtenerTodoElFeed(posts) {
     let index = 0;
     while (index < posts.length) {
         console.log("-> Procesando e indexando todos los posts en el cliente");
@@ -54,7 +54,7 @@ console.log("---------------------------")
 
 //Ejercicio 4
 
-function* serieFibonacciEager() {
+function* serieFibonacciLazy() {
     let secuencia = [0, 1];
     yield secuencia[0];
     yield secuencia[1];
@@ -68,7 +68,7 @@ function* serieFibonacciEager() {
     }
 }
 
-const fibonacci = serieFibonacciEager();
+const fibonacci = serieFibonacciLazy();
 console.log(fibonacci.next().value);
 console.log(fibonacci.next().value);
 console.log(fibonacci.next().value); 
