@@ -1,6 +1,6 @@
 //combinar programación lazy con funcional
 
-//Definir los prdicados atómicos
+//Definir los predicados atómicos
 const esPar=n=>n%2===0
 const multiploCinco=n=>n%5===0
 

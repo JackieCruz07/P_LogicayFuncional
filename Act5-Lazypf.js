@@ -20,12 +20,12 @@ const transacciones = deepFreeze([
   { id: 106, tipo: 'retiro', monto: 75000, pais: 'Espana' } 
 ]);
 
-// predicados
+// predicados o reglas
 const esRetiro = transaccion => transaccion.tipo === 'retiro';
 const esMontoSospechoso = transaccion => transaccion.monto >= 50000;
 const esZonaDeRiesgo = transaccion => transaccion.pais !== 'México';
 
-// reglas
+// combinación o composición
 const alertaFraude = transaccion => esRetiro(transaccion) && (esMontoSospechoso(transaccion) || esZonaDeRiesgo(transaccion));
 
 // funcion
@@ -58,7 +58,7 @@ const conPuntaje = aspirantes.map(aspirante => ({
   puntajeFinal: (aspirante.examen * 0.70) + (aspirante.entrevista * 0.30)
 }))
 
-// regla
+// regla combinada
 const calificaParaBeca = aspirante => aspirante.puntajeFinal >= 85 && aspirante.estudioSocioeconomico === true;
 
 // funcion
@@ -91,11 +91,11 @@ const paquetes = deepFreeze([
   { tracking: 'ZA6', estado: 'Oaxaca', peso: 30 } 
 ])
 
-// predicados
+// predicados o reglas
 const esDestinoLocal = paquete => paquete.estado === 'Tabasco'
 const esPesado = paquete => paquete.peso >= 15
 
-// regla
+// combinacion
 const envioPrioritarioLocal = paquete => !esDestinoLocal(paquete) && esPesado(paquete)
 
 // funcion
