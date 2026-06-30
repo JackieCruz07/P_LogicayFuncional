@@ -25,6 +25,8 @@ const peticionesHttp = deepFreeze([
 const esMetodoEscritura = peticion => peticion.metodo === "POST";
 const esLatenciaAlta = peticion => peticion.latenciaMs >= 2000;
 const esPayloadSospechoso = peticion => peticion.payload.includes("DROP") || peticion.payload.includes("SELECT") || peticion.payload.includes("MaliciousScript");
+//const esPayloadSospechoso = peticion => /(DROP|SELECT|MaliciousScript)/i.test(peticion.payload)
+//.test() recorre la cadena buscando coincidencias
 
 //reglas
 const detectarAmenazaPotencial = peticion => esMetodoEscritura(peticion) && (esLatenciaAlta(peticion) || esPayloadSospechoso(peticion));
